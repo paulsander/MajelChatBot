@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Discord;
+using IrcDotNet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,7 @@ namespace DiscordChatBot
     {
         static void Main(string[] args)
         {
+            DiscordBot myBot = new DiscordBot();
         }
     }
 }
