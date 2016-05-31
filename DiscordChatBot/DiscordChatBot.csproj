@@ -84,6 +84,7 @@
     <Compile Include="Modules\Core\CoreModule.cs" />
     <Compile Include="Modules\Core\HelpCommand.cs" />
     <Compile Include="Modules\Game\GameModule.cs" />
+    <Compile Include="Modules\Game\Parser\Token.cs" />
     <Compile Include="Modules\Game\RollCommand.cs" />
     <Compile Include="Modules\Help\CommandCommand.cs" />
     <Compile Include="Modules\Help\CommandsCommand.cs" />
