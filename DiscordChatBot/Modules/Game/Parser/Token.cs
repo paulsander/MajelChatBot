@@ -50,7 +50,7 @@ namespace DiscordChatBot.Modules.Game.Parser
             string currentToken= "";
             result = new ParseResult();
 
-            const string operators = "dlh*/+-r";
+            const string operators = "dlh*/+-r()";
             const string numbers = "0123456789";
             const string whitespace = " \t\n";
 
@@ -86,6 +86,8 @@ namespace DiscordChatBot.Modules.Game.Parser
                         case '+': tokenStack.Push(new RollerToken(TokenType.Add, currentChar.ToString())); break;
                         case '-': tokenStack.Push(new RollerToken(TokenType.Subtract, currentChar.ToString())); break;
                         case 'r': tokenStack.Push(new RollerToken(TokenType.Repeat, currentChar.ToString())); break;
+                        case '(': tokenStack.Push(new RollerToken(TokenType.LeftParen, currentChar.ToString())); break;
+                        case ')': tokenStack.Push(new RollerToken(TokenType.RightParen, currentChar.ToString())); break;
                     }
                     Console.WriteLine("Stack depth: {0}", tokenStack.Count);
                 }
