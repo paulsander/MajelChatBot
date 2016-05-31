@@ -96,7 +96,13 @@ namespace DiscordChatBot.Modules.Game.Parser
                 }
                 else if (whitespace.IndexOf(currentChar) >= 0)
                 {
-                    //Ignore this.
+                    //Ignore the whitespace, but dump any current number we're working on.
+                    if (currentToken != "")
+                    {
+                        tokenStack.Push(new RollerToken(TokenType.Number, currentToken));
+                        currentToken = "";
+                    }
+
                 }
                 else
                 {
