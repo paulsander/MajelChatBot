@@ -49,7 +49,21 @@ namespace DiscordChatBot.Modules.Game.Command
 
         public override void ExecuteHelp(DiscordBot discordBot, MessageEventArgs e, string messageCommand, string messageText)
         {
-            e.User.SendMessage("This a placeholder for the moment.");
+            e.User.SendMessage(
+                "You can roll a series of dice using this command. This command supports the following operations:\n" +
+                "(Note: Currently this command only parses input and rejects invalid input. )\n" +
+                "```" +
+                " x d y          d - Performs a die roll with x number of y-sided dice.\n" +
+                " x d y l z      l - Drops the z lowest dice from a given die roll.\n" +
+                " x d y h z      h - Drops the z-highest dice from a given die roll.\n" +
+                " x d y r z      r - Repeats a given die roll z times. (Only valid at the end of an expression.)\n" +
+                " x d y + z      + - Performs the given die roll and adds z to the result.\n" +
+                "                   The dice roller supports +, -, *, and /.\n" +
+                " 2 d (4 + 5)   () - Operation order can be controlled with parentheses.\n" +
+                "```" +
+                "These can be combined in arbitrary ways for more complex dice rolls, for example:\n```" +
+                "'4d6 l 1 r 6'             DnD character generation.\n" +
+                "'1d8 + 5 + 3d8 + 1d4'     Attack roll with bonus damage.\n```" );
         }
     }
 }
