@@ -9,7 +9,7 @@ namespace DiscordChatBot.Modules.Help.Command
 {
     class Command : BotCommand
     {
-        public Command() : base("command")
+        public Command() : base("command", "Help Module: Get help on a specific command.")
         {
         }
 

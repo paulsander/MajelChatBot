@@ -9,7 +9,7 @@ namespace DiscordChatBot.Modules.Game.Command
 {
     class Roll : BotCommand
     {
-        public Roll() : base("roll")
+        public Roll() : base("roll", "Rolls some dice.")
         {
         }
 
