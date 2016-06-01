@@ -26,7 +26,7 @@ namespace DiscordChatBot.Modules.Game.Command
             myParser.GenerateTokens(out tokenStack, messageText, out myResult);
             if (!myResult.success)
             {
-                e.Channel.SendMessage(String.Format("```Error in RollerParser while tokenizing string. Illegal character '{0}' at position {1}.```", myResult.illegalChar, myResult.pos));
+                e.Channel.SendMessage(String.Format("```Error in RollerParser while tokenizing string. Illegal character '{0}' at position {1}.\nTry '!help command roll' for more information.```", myResult.illegalChar, myResult.pos));
             }
             else
             {
