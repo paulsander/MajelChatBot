@@ -20,13 +20,12 @@ namespace DiscordChatBot.Modules.Game.Command
             myParser = new Parser.DiceParser();
 
             Stack<Parser.RollerToken> tokenStack;
-            bool success;
-
+            
             Parser.ParseResult myResult;
             myResult = new Parser.ParseResult();
 
-            myParser.GenerateTokens(out tokenStack, out success, messageText, out myResult);
-            if (!success)
+            myParser.GenerateTokens(out tokenStack, messageText, out myResult);
+            if (!myResult.success)
             {
                 e.Channel.SendMessage(String.Format("```Error in RollerParser while tokenizing string. Illegal character '{0}' at position {1}.```", myResult.illegalChar, myResult.pos));
             }

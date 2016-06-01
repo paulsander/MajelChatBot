@@ -35,6 +35,7 @@ namespace DiscordChatBot.Modules.Game.Parser
     {
         public int pos;
         public char illegalChar;
+        public bool success;
     }
 
     class DiceParser
@@ -43,7 +44,7 @@ namespace DiscordChatBot.Modules.Game.Parser
         {
         }
 
-        public void GenerateTokens(out Stack<RollerToken> tokenStack, out bool success, string input, out ParseResult result)
+        public void GenerateTokens(out Stack<RollerToken> tokenStack, string input, out ParseResult result)
         {
             tokenStack = new Stack<RollerToken>();
 
@@ -108,7 +109,7 @@ namespace DiscordChatBot.Modules.Game.Parser
                 else
                 {
                     //If we got all the way down here we don't have a supported character
-                    success = false;
+                    result.success = false;
                     result.pos = post;
                     result.illegalChar = currentChar;
                     return;
@@ -119,7 +120,7 @@ namespace DiscordChatBot.Modules.Game.Parser
             if (currentToken != "")
                 tokenStack.Push(new RollerToken(TokenType.Number, currentToken));
 
-            success = true;
+            result.success = true;
             result.pos = 0;
             result.illegalChar = ' ';
             return;
