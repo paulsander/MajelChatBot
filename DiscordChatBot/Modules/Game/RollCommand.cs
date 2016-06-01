@@ -43,7 +43,7 @@ namespace DiscordChatBot.Modules.Game.Command
                     if (firstLoop) firstLoop = false; else consoleOutput += " ";
                     consoleOutput += ("[" + token.Text + "]");
                 }
-                e.Channel.SendMessage("Input tokenized. Here is the current stack: ```" + consoleOutput + "```");
+                e.Channel.SendMessage("Input tokenized. Here is the current stack: ```\n" + consoleOutput + "```");
             }
         }
 
