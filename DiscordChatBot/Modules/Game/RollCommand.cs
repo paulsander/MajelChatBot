@@ -16,13 +16,12 @@ namespace DiscordChatBot.Modules.Game.Command
         public override void ExecuteAction(DiscordBot discordBot, MessageEventArgs e, string messageCommand, string messageText)
         {
             //e.Channel.SendMessage("4 //chosen by fair dice roll, guaranteed to be random.");
-            Parser.DiceParser myParser;
-            myParser = new Parser.DiceParser();
+            Parser.Tokenizer myParser;
+            myParser = new Parser.Tokenizer();
 
             Stack<Parser.RollerToken> tokenStack;
             
-            Parser.ParseResult myResult;
-            myResult = new Parser.ParseResult();
+            Parser.TokenizerResult myResult;
 
             myParser.GenerateTokens(out tokenStack, messageText, out myResult);
             if (!myResult.success)
