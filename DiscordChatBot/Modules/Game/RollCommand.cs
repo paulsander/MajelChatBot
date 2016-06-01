@@ -58,7 +58,7 @@ namespace DiscordChatBot.Modules.Game.Command
                 " x d y h z      h - Drops the z-highest dice from a given die roll.\n" +
                 " x d y r z      r - Repeats a given die roll z times. (Only valid at the end of an expression.)\n" +
                 " x d y + z      + - Performs the given die roll and adds z to the result.\n" +
-                "                   The dice roller supports +, -, and *.\n" +
+                "                    The dice roller supports +, -, and *.\n" +
                 " 2 d (4 + 5)   () - Operation order can be controlled with parentheses.\n" +
                 "```" +
                 "These can be combined in arbitrary ways for more complex dice rolls, for example:\n```" +
