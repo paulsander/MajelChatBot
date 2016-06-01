@@ -13,12 +13,12 @@ namespace DiscordChatBot.Modules.Game.Parser
         LeftParen, RightParen, Number
     };
 
-    class RollerToken
+    class DieRollingToken
     {
         private TokenType _tokenType;
         private string _text;
 
-        public RollerToken(TokenType tokenType, string textValue )
+        public DieRollingToken(TokenType tokenType, string textValue )
         {
             _tokenType = tokenType;
             Text = textValue;

@@ -19,9 +19,9 @@ namespace DiscordChatBot.Modules.Game.Parser
         {
         }
 
-        public void GenerateTokens(out Stack<RollerToken> tokenStack, string input, out TokenizerResult result)
+        public void GenerateTokens(out Stack<DieRollingToken> tokenStack, string input, out TokenizerResult result)
         {
-            tokenStack = new Stack<RollerToken>();
+            tokenStack = new Stack<DieRollingToken>();
 
             string currentToken = "";
             result = new TokenizerResult();
@@ -43,7 +43,7 @@ namespace DiscordChatBot.Modules.Game.Parser
                     {
                         //... then we need to push the number to the stack and keep going.
                         Console.WriteLine("Pushing a number to stack: {0}", currentToken);
-                        tokenStack.Push(new RollerToken(TokenType.Number, currentToken));
+                        tokenStack.Push(new DieRollingToken(TokenType.Number, currentToken));
                         currentToken = ""; //.. and wipe the old number.
                         Console.WriteLine("Stack depth: {0}", tokenStack.Count);
                     }
@@ -51,15 +51,15 @@ namespace DiscordChatBot.Modules.Game.Parser
                     Console.WriteLine("Pushing a character to stack: {0}", currentChar);
                     switch (currentChar)
                     {
-                        case 'd': tokenStack.Push(new RollerToken(TokenType.DieRoll, currentChar.ToString())); break;
-                        case 'l': tokenStack.Push(new RollerToken(TokenType.DropLowerst, currentChar.ToString())); break;
-                        case 'h': tokenStack.Push(new RollerToken(TokenType.DropHighest, currentChar.ToString())); break;
-                        case '*': tokenStack.Push(new RollerToken(TokenType.Multiply, currentChar.ToString())); break;
-                        case '+': tokenStack.Push(new RollerToken(TokenType.Add, currentChar.ToString())); break;
-                        case '-': tokenStack.Push(new RollerToken(TokenType.Subtract, currentChar.ToString())); break;
-                        case 'r': tokenStack.Push(new RollerToken(TokenType.Repeat, currentChar.ToString())); break;
-                        case '(': tokenStack.Push(new RollerToken(TokenType.LeftParen, currentChar.ToString())); break;
-                        case ')': tokenStack.Push(new RollerToken(TokenType.RightParen, currentChar.ToString())); break;
+                        case 'd': tokenStack.Push(new DieRollingToken(TokenType.DieRoll, currentChar.ToString())); break;
+                        case 'l': tokenStack.Push(new DieRollingToken(TokenType.DropLowerst, currentChar.ToString())); break;
+                        case 'h': tokenStack.Push(new DieRollingToken(TokenType.DropHighest, currentChar.ToString())); break;
+                        case '*': tokenStack.Push(new DieRollingToken(TokenType.Multiply, currentChar.ToString())); break;
+                        case '+': tokenStack.Push(new DieRollingToken(TokenType.Add, currentChar.ToString())); break;
+                        case '-': tokenStack.Push(new DieRollingToken(TokenType.Subtract, currentChar.ToString())); break;
+                        case 'r': tokenStack.Push(new DieRollingToken(TokenType.Repeat, currentChar.ToString())); break;
+                        case '(': tokenStack.Push(new DieRollingToken(TokenType.LeftParen, currentChar.ToString())); break;
+                        case ')': tokenStack.Push(new DieRollingToken(TokenType.RightParen, currentChar.ToString())); break;
                     }
                     Console.WriteLine("Stack depth: {0}", tokenStack.Count);
                 }
@@ -73,7 +73,7 @@ namespace DiscordChatBot.Modules.Game.Parser
                     //Ignore the whitespace, but dump any current number we're working on.
                     if (currentToken != "")
                     {
-                        tokenStack.Push(new RollerToken(TokenType.Number, currentToken));
+                        tokenStack.Push(new DieRollingToken(TokenType.Number, currentToken));
                         currentToken = "";
                     }
 
@@ -90,7 +90,7 @@ namespace DiscordChatBot.Modules.Game.Parser
             }
             //If we're still processing a number, now's the time to dump it.
             if (currentToken != "")
-                tokenStack.Push(new RollerToken(TokenType.Number, currentToken));
+                tokenStack.Push(new DieRollingToken(TokenType.Number, currentToken));
 
             result.success = true;
             result.pos = 0;

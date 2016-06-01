@@ -19,7 +19,7 @@ namespace DiscordChatBot.Modules.Game.Command
             Parser.Tokenizer myParser;
             myParser = new Parser.Tokenizer();
 
-            Stack<Parser.RollerToken> tokenStack;
+            Stack<Parser.DieRollingToken> tokenStack;
             
             Parser.TokenizerResult myResult;
 
@@ -36,7 +36,7 @@ namespace DiscordChatBot.Modules.Game.Command
                 consoleOutput = "";
                 bool firstLoop;
                 firstLoop = false;
-                foreach (Parser.RollerToken token in tokenStack.Reverse<Parser.RollerToken>())
+                foreach (Parser.DieRollingToken token in tokenStack.Reverse<Parser.DieRollingToken>())
                 {
                     if (firstLoop) firstLoop = false; else consoleOutput += " ";
                     consoleOutput += ("[" + token.Text + "]");
