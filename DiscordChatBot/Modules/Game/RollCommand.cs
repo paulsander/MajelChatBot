@@ -32,15 +32,10 @@ namespace DiscordChatBot.Modules.Game.Command
             {
                 //We should now have tokenized the string.
                 //For debugging purposes I will dump everything out the console.
-                string consoleOutput;
-                consoleOutput = "";
-                bool firstLoop;
-                firstLoop = false;
-                foreach (Parser.DieRollingToken token in tokenStack.Reverse<Parser.DieRollingToken>())
-                {
-                    if (firstLoop) firstLoop = false; else consoleOutput += " ";
-                    consoleOutput += ("[" + token.Text + "]");
-                }
+                string consoleOutput = "";
+                
+                consoleOutput = "[" + String.Join<Parser.DieRollingToken>("] [", tokenStack.Reverse<Parser.DieRollingToken>().ToArray()) + "]";
+                
                 e.Channel.SendMessage("Input tokenized. Here is the current stack: ```\n" + consoleOutput + "```");
             }
         }

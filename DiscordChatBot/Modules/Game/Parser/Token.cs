@@ -26,6 +26,7 @@ namespace DiscordChatBot.Modules.Game.Parser
             Position = position;
         }
 
+        #region Properties
         public string Text
         {
             get { return _text; }
@@ -37,5 +38,13 @@ namespace DiscordChatBot.Modules.Game.Parser
             get { return _position; }
             set { _position = value; }
         }
+        #endregion
+
+        #region ToString Override
+        public override string ToString()
+        {
+            return Text;
+        }
+        #endregion
     }
 }
