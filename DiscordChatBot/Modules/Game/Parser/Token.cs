@@ -17,17 +17,25 @@ namespace DiscordChatBot.Modules.Game.Parser
     {
         private TokenType _tokenType;
         private string _text;
+        private int _position;
 
-        public DieRollingToken(TokenType tokenType, string textValue )
+        public DieRollingToken(TokenType tokenType, string textValue, int position )
         {
             _tokenType = tokenType;
             Text = textValue;
+            Position = position;
         }
 
         public string Text
         {
             get { return _text; }
             set { _text = value; }
+        }
+
+        public int Position
+        {
+            get { return _position; }
+            set { _position = value; }
         }
     }
 }
