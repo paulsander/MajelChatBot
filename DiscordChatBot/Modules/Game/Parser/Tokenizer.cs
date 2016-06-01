@@ -46,14 +46,11 @@ namespace DiscordChatBot.Modules.Game.Parser
                     if (currentToken != "")
                     {
                         //... then we need to push the number to the stack and keep going.
-                        Console.WriteLine("Pushing a number to stack: {0}", currentToken);
                         tokenStack.Push(new DieRollingToken(TokenType.Number, currentToken, tokenStart));
                         currentToken = ""; //.. and wipe the old number.
                         tokenStart = -1; // And reset the position pointer.
-                        Console.WriteLine("Stack depth: {0}", tokenStack.Count);
                     }
 
-                    Console.WriteLine("Pushing a character to stack: {0}", currentChar);
                     switch (currentChar)
                     {
                         case 'd': currTokenType = TokenType.DieRoll; break;
