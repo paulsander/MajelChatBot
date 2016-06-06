@@ -34,9 +34,16 @@ namespace DiscordChatBot.Modules.Game.Command
                 //For debugging purposes I will dump everything out the console.
                 string consoleOutput = "";
                 
-                consoleOutput = "[" + String.Join<Parser.DieRollingToken>("] [", tokenStack.Reverse<Parser.DieRollingToken>().ToArray()) + "]";
+                consoleOutput = "[" + String.Join<Parser.DieRollingToken>("] [", tokenStack.ToArray()) + "]";
                 
                 e.Channel.SendMessage("Input tokenized. Here is the current stack: ```\n" + consoleOutput + "```");
+
+                Parser.ParseTree parseTree = new Parser.ParseTree();
+
+                Parser.ParseResult result;
+
+                string parseOutput = parseTree.ParseTokens(tokenStack, out result);
+                e.Channel.SendMessage(parseOutput);
             }
         }
 

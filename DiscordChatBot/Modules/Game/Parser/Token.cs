@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace DiscordChatBot.Modules.Game.Parser
 {
+    
     enum TokenType
     {
-        DieRoll, DropLowerst, DropHighest,
+        DieRoll, DropLowest, DropHighest,
         Multiply, Add, Subtract, Repeat,
         LeftParen, RightParen, Number
     };
@@ -27,6 +28,10 @@ namespace DiscordChatBot.Modules.Game.Parser
         }
 
         #region Properties
+        public TokenType Type
+        {
+            get { return _tokenType; }
+        }
         public string Text
         {
             get { return _text; }

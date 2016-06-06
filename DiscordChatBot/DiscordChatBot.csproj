@@ -84,6 +84,9 @@
     <Compile Include="Modules\Core\CoreModule.cs" />
     <Compile Include="Modules\Core\HelpCommand.cs" />
     <Compile Include="Modules\Game\GameModule.cs" />
+    <Compile Include="Modules\Game\Parser\Dice.cs" />
+    <Compile Include="Modules\Game\Parser\Exceptions.cs" />
+    <Compile Include="Modules\Game\Parser\ParseTree.cs" />
     <Compile Include="Modules\Game\Parser\Token.cs" />
     <Compile Include="Modules\Game\Parser\Tokenizer.cs" />
     <Compile Include="Modules\Game\RollCommand.cs" />
