@@ -15,6 +15,11 @@ namespace DiscordChatBot.Modules.Game.Command
 
         public override void ExecuteAction(DiscordBot discordBot, MessageEventArgs e, string messageCommand, string messageText)
         {
+            if(messageText.Length > 100 )
+            {
+                e.Channel.SendMessage("Dice rolling input is limited to 100 characters.");
+                    return;
+            }
             //e.Channel.SendMessage("4 //chosen by fair dice roll, guaranteed to be random.");
             Parser.Tokenizer myParser;
             myParser = new Parser.Tokenizer();
